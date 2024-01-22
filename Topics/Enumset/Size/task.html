@@ -1,0 +1,16 @@
+<h2>Size</h2>
+<div class="step-text">
+<p></p>
+<p>Suppose you are compiling a resource of various city names in this beautiful world and creating an enum const in the <code class="language-java">Abbreviation</code> enum class. You have created 260 of such constants (sorted in <a href="https://en.wikipedia.org/wiki/Lexicographic_order" rel="noopener noreferrer nofollow" target="_blank">lexicographic order</a>), with every 10 starting with one letter of the English alphabet. The  <code class="language-java">Abbreviation</code> class is shown below.</p>
+<pre><code class="language-java">public enum Abbreviation {
+    AB, AC, AK, ...., AZ, // 10 values start with A
+    BA, BE, BF, ...., BY, // 10 values start with B
+    ...
+    ZA, ZE, ZI, ...., ZY  // 10 values start with Z
+}
+
+EnumSet&lt;Abbreviation&gt; subSet = EnumSet.range(Abbreviation.DA , Abbreviation.YZ);
+System.out.println(subSet.size());</code></pre>
+<p>For example, the first 10 city abbreviations start with the letter A , for example, AB, AC, AK, AM, AQ, etc. (sorted in lexicographic order). The next 10 will start with the letter B, and, correspondingly, abbreviations 251 to 260 will have Z as their first letter.</p>
+<p>Your task is to find out the output of the program.</p>
+</div>
