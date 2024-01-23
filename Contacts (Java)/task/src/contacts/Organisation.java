@@ -71,7 +71,6 @@ public class Organisation extends Contact {
                 String address = scanner.nextLine();
                 this.setAddress(address);
                 break;
-
         }
 
         this.timeLastEdit = LocalDateTime.now();

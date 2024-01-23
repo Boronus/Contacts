@@ -9,9 +9,9 @@ public class Person extends Contact {
     private String name;
     private String surname;
     private LocalDate birthDate;
-    private Boolean gender;
+    private Gender gender;
 
-    Person(String phone, String name, String surname, LocalDate birthDate, Boolean gender) {
+    Person(String phone, String name, String surname, LocalDate birthDate, Gender gender) {
         super(phone);
         this.name = name;
         this.surname = surname;
@@ -40,7 +40,7 @@ public class Person extends Contact {
             return "[no data]";
         }
 
-        return gender ? "M" : "F";
+        return gender == Gender.MALE ? "M" : "F";
     }
 
     public void setName(String name) {
@@ -55,7 +55,7 @@ public class Person extends Contact {
         this.birthDate = birthDate;
     }
 
-    public void setGender(Boolean gender) {
+    public void setGender(Gender gender) {
         this.gender = gender;
     }
 
@@ -116,14 +116,14 @@ public class Person extends Contact {
             case "gender":
                 System.out.println("Enter the gender (M, F):");
                 String genderString = scanner.nextLine();
-                Boolean gender = null;
+                Gender gender = null;
 
                 switch (genderString) {
                     case "M":
-                        gender = true;
+                        gender = Gender.MALE;
                         break;
                     case "F":
-                        gender = false;
+                        gender = Gender.FEMALE;
                         break;
                     default:
                         System.out.println("Bad gender!");

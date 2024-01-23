@@ -51,14 +51,14 @@ public class Book {
 
         System.out.println("Enter the gender (M, F):");
         String genderString = scanner.nextLine();
-        Boolean gender = null;
+        Gender gender = null;
 
         switch (genderString) {
             case "M":
-                gender = true;
+                gender = Gender.MALE;
                 break;
             case "F":
-                gender = false;
+                gender = Gender.FEMALE;
                 break;
             default:
                 System.out.println("Bad gender!");

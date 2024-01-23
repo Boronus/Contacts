@@ -3,6 +3,7 @@ package contacts;
 import java.time.LocalDateTime;
 
 public abstract class Contact {
+    final String PHONE_REGEX = "^[+]?(\\w+[-\\s]?)?([(]?\\w{2,}[)]?[-\\s]?)?(\\w{2,}[-\\s])?(\\w{2,}[-\\s])?(\\w{2,})?$";
     private String phone;
     public LocalDateTime timeCreated;
     public LocalDateTime timeLastEdit;
@@ -22,8 +23,7 @@ public abstract class Contact {
     }
 
     public boolean isPhoneValid() {
-        String phoneRexEx = "^[+]?(\\w+[-\\s]?)?([(]?\\w{2,}[)]?[-\\s]?)?(\\w{2,}[-\\s])?(\\w{2,}[-\\s])?(\\w{2,})?$";
-        return this.phone.matches(phoneRexEx);
+        return this.phone.matches(PHONE_REGEX);
     }
 
     public abstract void info();
