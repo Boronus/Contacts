@@ -27,20 +27,12 @@ public class Person extends Contact {
         return surname;
     }
 
-    public LocalDate getBirthDate() {
-        return birthDate;
-    }
-
     public String getBirthDateString() {
         if (birthDate != null) {
             return birthDate.toString();
         }
 
         return "[no data]";
-    }
-
-    public Boolean getGender() {
-        return gender;
     }
 
     public String getGenderString() {

@@ -103,21 +103,6 @@ public class Book {
         this.list.add(contact);
     }
 
-    public void remove() {
-        if (this.list.isEmpty()) {
-            System.out.println("No records to remove!");
-            return;
-        }
-
-        this.list();
-
-        System.out.println("Select a record: ");
-        Scanner scanner = new Scanner(System.in);
-        int index = scanner.nextInt();
-        this.list.remove(index - 1);
-        System.out.println("The record removed!");
-    }
-
     public void delete() {
         this.list.remove(this.selectedRecordNumber);
         System.out.println("The record removed!");
@@ -133,17 +118,6 @@ public class Book {
 
     public void count() {
         System.out.format("The Phone Book has %d records.", this.list.size());
-    }
-
-    public void info() {
-        this.list();
-
-        System.out.println("Enter index to show info: ");
-        Scanner scanner = new Scanner(System.in);
-        int index = scanner.nextInt();
-        scanner.nextLine();
-        Contact contact = this.list.get(index - 1);
-        contact.info();
     }
 
     public void list() {

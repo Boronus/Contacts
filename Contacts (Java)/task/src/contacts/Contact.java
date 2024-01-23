@@ -26,10 +26,6 @@ public abstract class Contact {
         return this.phone.matches(phoneRexEx);
     }
 
-    public boolean isPerson() {
-        return this instanceof Person;
-    }
-
     public abstract void info();
 
     public abstract void list(int index);

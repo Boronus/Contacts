@@ -1,7 +1,6 @@
 package contacts;
 
-import java.util.ArrayList;
-import java.util.EnumSet;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Main {
@@ -40,8 +39,7 @@ public class Main {
                 System.out.println("[search] Enter action ([number], back, again): ");
                 String actionString = scanner.nextLine();
                 try {
-                    int index = 0;
-                    index = Integer.parseInt(actionString);
+                    int index = Integer.parseInt(actionString);
                     book.selectedRecordNumber = index;
                     Contact infoContact = book.list.get(index -1);
                     infoContact.info();
@@ -65,12 +63,10 @@ public class Main {
                 System.out.println("[record] Enter action (edit, delete, menu): ");
                 String actionString = scanner.nextLine();
                 try {
-                    int index = 0;
-                    index = Integer.parseInt(actionString);
+                    int index = Integer.parseInt(actionString);
                     book.selectedRecordNumber = index;
                     Contact infoContact = book.list.get(index -1);
                     infoContact.info();
-                    currentAction = CurrentAction.RECORD;
                 } catch (NumberFormatException nfe) {
                     action = getAction(actionString);
 
@@ -94,8 +90,7 @@ public class Main {
                 System.out.println("[list] Enter action ([number], back): ");
                 String actionString = scanner.nextLine();
                 try {
-                    int index = 0;
-                    index = Integer.parseInt(actionString);
+                    int index = Integer.parseInt(actionString);
                     book.selectedRecordNumber = index;
                     Contact infoContact = book.list.get(index -1);
                     infoContact.info();
@@ -103,10 +98,8 @@ public class Main {
                 } catch (NumberFormatException nfe) {
                     action = getAction(actionString);
 
-                    switch (action) {
-                        case BACK:
-                            currentAction = CurrentAction.MENU;
-                            break;
+                    if (Objects.requireNonNull(action) == Action.BACK) {
+                        currentAction = CurrentAction.MENU;
                     }
                 }
             }
@@ -114,32 +107,20 @@ public class Main {
     }
 
     public static Action getAction(String actionName) {
-        switch (actionName) {
-            case "add":
-                return Action.ADD;
-            case "remove":
-                return Action.REMOVE;
-            case "edit":
-                return Action.EDIT;
-            case "count":
-                return Action.COUNT;
-            case "info":
-                return Action.INFO;
-            case "search":
-                return Action.SEARCH;
-            case "list":
-                return Action.LIST;
-            case "back":
-                return Action.BACK;
-            case "again":
-                return Action.AGAIN;
-            case "menu":
-                return Action.MENU;
-            case "delete":
-                return Action.DELETE;
-            default:
-                return Action.EXIT;
-        }
+        return switch (actionName) {
+            case "add" -> Action.ADD;
+            case "remove" -> Action.REMOVE;
+            case "edit" -> Action.EDIT;
+            case "count" -> Action.COUNT;
+            case "info" -> Action.INFO;
+            case "search" -> Action.SEARCH;
+            case "list" -> Action.LIST;
+            case "back" -> Action.BACK;
+            case "again" -> Action.AGAIN;
+            case "menu" -> Action.MENU;
+            case "delete" -> Action.DELETE;
+            default -> Action.EXIT;
+        };
     }
 
 }
