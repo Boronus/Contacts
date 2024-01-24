@@ -7,9 +7,9 @@ import java.util.Scanner;
 public class Book {
     public ArrayList<Contact> list;
     ArrayList<Contact> lastSearch = new ArrayList<>();
-    Integer selectedRecordNumber = null;
+    public Integer selectedRecordNumber = null;
 
-    Book() {
+    public Book() {
         this.list = new ArrayList<>();
     }
 
@@ -20,19 +20,17 @@ public class Book {
 
         switch (type) {
             case "person":
-                this.addPerson();
+                this.addPerson(scanner);
                 break;
             case "organization":
-                this.addOrganisation();
+                this.addOrganisation(scanner);
                 break;
             default:
                 System.out.println("Wrong type!");
         }
     }
 
-    private void addPerson() {
-        Scanner scanner = new Scanner(System.in);
-
+    private void addPerson(Scanner scanner) {
         System.out.println("Enter the name:");
         String name = scanner.nextLine();
 
@@ -79,9 +77,7 @@ public class Book {
         this.list.add(contact);
     }
 
-    private void addOrganisation() {
-        Scanner scanner = new Scanner(System.in);
-
+    private void addOrganisation(Scanner scanner) {
         System.out.println("Enter the organization name:");
         String title = scanner.nextLine();
 
@@ -103,7 +99,7 @@ public class Book {
         this.list.add(contact);
     }
 
-    public void delete() {
+    public void deleteRecord() {
         this.list.remove(this.selectedRecordNumber);
         System.out.println("The record removed!");
     }

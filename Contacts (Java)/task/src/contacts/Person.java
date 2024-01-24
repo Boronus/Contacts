@@ -11,7 +11,7 @@ public class Person extends Contact {
     private LocalDate birthDate;
     private Gender gender;
 
-    Person(String phone, String name, String surname, LocalDate birthDate, Gender gender) {
+    public Person(String phone, String name, String surname, LocalDate birthDate, Gender gender) {
         super(phone);
         this.name = name;
         this.surname = surname;

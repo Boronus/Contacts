@@ -75,7 +75,7 @@ public class Main {
                             book.edit();
                             break;
                         case DELETE:
-                            book.delete();
+                            book.deleteRecord();
                             currentAction = CurrentAction.MENU;
                             break;
                         case MENU:
@@ -107,20 +107,6 @@ public class Main {
     }
 
     public static Action getAction(String actionName) {
-        return switch (actionName) {
-            case "add" -> Action.ADD;
-            case "remove" -> Action.REMOVE;
-            case "edit" -> Action.EDIT;
-            case "count" -> Action.COUNT;
-            case "info" -> Action.INFO;
-            case "search" -> Action.SEARCH;
-            case "list" -> Action.LIST;
-            case "back" -> Action.BACK;
-            case "again" -> Action.AGAIN;
-            case "menu" -> Action.MENU;
-            case "delete" -> Action.DELETE;
-            default -> Action.EXIT;
-        };
+        return Action.valueOf(actionName.toUpperCase());
     }
-
 }

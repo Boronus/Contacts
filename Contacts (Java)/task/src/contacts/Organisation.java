@@ -8,7 +8,7 @@ public class Organisation extends Contact {
     private String title;
     private String address;
 
-    Organisation(String phone, String title, String address) {
+    public Organisation(String phone, String title, String address) {
         super(phone);
         this.title = title;
         this.address = address;
